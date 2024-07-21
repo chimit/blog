@@ -7,7 +7,7 @@ export const SITE: Site = {
   profile: "https://chimit.me",
   desc: "Missing particles found and documented.",
   title: "Undocumented Docs",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "chimit-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,
   postPerPage: 20,
