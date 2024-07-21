@@ -2,15 +2,15 @@ import type { Site, SocialObjects } from "./types";
 import type { GiscusProps } from "@giscus/react";
 
 export const SITE: Site = {
-  website: "https://astro-paper.pages.dev/", // replace this with your deployed domain
-  author: "Sat Naing",
-  profile: "https://satnaing.dev/",
-  desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
-  title: "AstroPaper",
+  website: "https://chimit.me", // replace this with your deployed domain
+  author: "Chimit",
+  profile: "https://chimit.me",
+  desc: "Missing particles found and documented.",
+  title: "Undocumented Docs",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,
-  postPerPage: 3,
+  postPerPage: 20,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
 };
 
@@ -31,7 +31,7 @@ export const SOCIALS: SocialObjects = [
     name: "Github",
     href: "https://github.com/chimit",
     linkTitle: ` ${SITE.title} on Github`,
-    active: false,
+    active: true,
   },
   {
     name: "Facebook",
@@ -59,9 +59,9 @@ export const SOCIALS: SocialObjects = [
   },
   {
     name: "Twitter",
-    href: "https://github.com/satnaing/astro-paper",
+    href: "https://x.com/ichimit",
     linkTitle: `${SITE.title} on Twitter`,
-    active: false,
+    active: true,
   },
   {
     name: "Twitch",
@@ -137,9 +137,9 @@ export const SOCIALS: SocialObjects = [
   },
   {
     name: "Telegram",
-    href: "https://github.com/satnaing/astro-paper",
+    href: "https://chimit.t.me",
     linkTitle: `${SITE.title} on Telegram`,
-    active: false,
+    active: true,
   },
   {
     name: "Mastodon",
