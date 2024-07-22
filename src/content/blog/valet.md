@@ -126,6 +126,7 @@ Let's assume our coding projects are stored in the `~/Code` directory. We want V
 
 ```shell
 cd ~/Code
+
 valet park
 ```
 
@@ -144,7 +145,7 @@ export PATH="/Users/Shared/DBngin/mysql/8.0.19/bin":$PATH
 
 Your MySQL version may be different so you may need to change it in the path above. You can find your MySQL version right in the DBngin interface.
 
-![something](@assets/images/dbngin.png)
+![DBngin](@assets/images/dbngin.png)
 
 ### Sequel Ace
 
@@ -156,4 +157,4 @@ Now you are ready to go and create a new PHP/Laravel project inside `~/Code` or 
 
 Here is a full picture of what we've done.
 
-![something](@assets/images/valet.png)
+![PHP local development environment scheme](@assets/images/valet.png)
