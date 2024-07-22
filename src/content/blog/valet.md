@@ -60,6 +60,13 @@ Now you should be able to run PHP. E.g. try `php --version` to see the installed
 
 [Composer](https://getcomposer.org) is another package and dependency manager like Brew but for PHP packages. Modern PHP development is unthinkable without it.
 
+There are two ways of installing Composer in your system:
+
+1. Manually by downloading its binary from the official website
+2. Via Brew
+
+### Option 1 - Manually
+
 Download Composer installer from https://getcomposer.org/installer, put it into your home directory, and run it using PHP:
 
 ```shell
@@ -76,7 +83,15 @@ sudo mv composer.phar /usr/local/bin/composer
 
 To check if Composer is available run `composer --version`.
 
-> Composer can also be installed via Brew since it's just another package: `brew install composer`, but I usually prefer to follow the [official instructions](https://getcomposer.org/doc/00-intro.md).
+### Option 2 - via Brew
+
+Since Composer is just another package it can be installed via Brew. Just run:
+
+```shell
+brew install composer
+```
+
+That's it! Composer should be available globally now. You can check it by running `composer --version`.
 
 ### Path
 
