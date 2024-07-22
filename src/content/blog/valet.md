@@ -58,13 +58,15 @@ Now you should be able to run PHP. E.g. try `php --version` to see the installed
 
 ## Install Composer
 
+[Composer](https://getcomposer.org) is another package and dependency manager like Brew but for PHP packages. Modern PHP development is unthinkable without it.
+
 Download Composer installer from https://getcomposer.org/installer, put it into your home directory, and run it using PHP:
 
 ```shell
 php ~/installer
 ```
 
-It will download the latest version of Composer - `composer.phar` file. Now you can remove the “installer” file.
+It will download the latest version of Composer - `composer.phar` binary file. Now you can remove the `installer` file.
 
 Move `composer.phar` to a global path so the `composer` command is available from anywhere:
 
@@ -78,7 +80,7 @@ To check if Composer is available run `composer --version`.
 
 ### Path
 
-Since Composer and Brew are both package managers used to install other binaries, the directories where those binaries are located should be added to your global path, similar to what we've just done for the Brew directory.
+Since Composer and Brew are both package managers used to install other binaries, the directories where those binaries are located should be added to your global path, similar to what we've just done for the Brew's `bin` directory.
 
 Add the following lines to the end of your `~/.zshrc` or `~/.bash_profile` files:
 
@@ -87,7 +89,7 @@ Add the following lines to the end of your `~/.zshrc` or `~/.bash_profile` files
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 ```
 
-This will make all binary packages installed by Composer available globally in the command line interface, so you don’t need to type the full path like `~/.composer/vendor/bin/valet`. Instead, you can just type `valet`.
+This will make all binary packages installed by Composer globally (in the `~/.composer` directory) available in the command line interface, so you don’t need to type the full path like `~/.composer/vendor/bin/valet`. Instead, you can just type `valet`.
 
 Restart your console for the updated `PATH` to take effect.
 
@@ -105,7 +107,7 @@ valet install
 
 ### Park your sites directory with Valet
 
-Let's assume our coding projects are stored in a `~/Code` directory. We want Valet to register local domains for every directory inside `~/Code`. For example, `~/Code/blog` directory will be available under http://blog.test domain. That's the beauty of Valet - you just create a new project directory inside `~/Code` and it gets available under the `http://[project-directory-name].test` right away! To make it work we need to park our projects directory.
+Let's assume our coding projects are stored in the `~/Code` directory. We want Valet to register local domains for every directory inside `~/Code`. For example, `~/Code/blog` directory will be available under http://blog.test domain. That's the beauty of Valet - you just create a new project directory inside `~/Code` and it gets available under the `http://[project-directory-name].test` right away! To make it work we need to park our projects directory.
 
 ```shell
 cd ~/Code
@@ -116,9 +118,9 @@ Parking of the projects directory is not the only way to organize your work with
 
 ## MySQL
 
-Valet provides us with full nginx web server and DNS support. PHP is available system-wide. The last piece almost any PHP application need is a database. The simplest way to get it is **DBngin**. Download and install it from https://dbngin.com and create a MySQL server there. It will be available on `127.0.0.1` with the login `root` without the password.
+Valet provides us with a full Nginx web server and DNS support. PHP is available system-wide. The last piece almost any PHP application needs is a database. The simplest way to get it is **DBngin**. Download and install it from https://dbngin.com and create a MySQL server there. It will be available at `127.0.0.1` with the login `root` without the password.
 
-It's also useful to have `mysql` command available globally. You already know how to do it - by adding its binary file location into `PATH`. Go and edit your `~/.zshrc` or `~/.bash_profile` files again and add the path to your MySQL binary:
+It's also useful to have `mysql` command available globally. You already know how to do it - by adding its binary file location to `PATH`. Edit your `~/.zshrc` or `~/.bash_profile` files again and add the path to your MySQL binary:
 
 ```shell
 # DBngin
