@@ -4,6 +4,7 @@ import "@styles/base.css";
 import { ViewTransitions } from "astro:transitions";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
+const yandexVerification = import.meta.env.PUBLIC_YANDEX_VERIFICATION;
 
 export interface Props {
   title?: string;
@@ -126,6 +127,15 @@ const structuredData = {
           name="google-site-verification"
           content={googleSiteVerification}
         />
+      )
+    }
+
+    {
+      // If PUBLIC_YANDEX_VERIFICATION is set in the environment variable,
+      // include yandex-verification tag in the heading
+      // Learn more: https://webmaster.yandex.com/welcome/
+      yandexVerification && (
+        <meta name="yandex-verification" content={yandexVerification} />
       )
     }
 
