@@ -1,5 +1,5 @@
 ---
-title: Setup Laravel Valet in 2024
+title: Setting up Laravel Valet in 2024
 author: Chimit
 pubDatetime: 2024-07-19T12:00:00Z
 featured: false
