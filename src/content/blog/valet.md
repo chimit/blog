@@ -145,7 +145,7 @@ export PATH="/Users/Shared/DBngin/mysql/8.0.19/bin":$PATH
 
 Your MySQL version may be different so you may need to change it in the path above. You can find your MySQL version right in the DBngin interface.
 
-![DBngin](@assets/images/dbngin.png)
+<img src="/assets/dbngin.png" srcset="/assets/dbngin.png 2x" alt="DBngin">
 
 ### Sequel Ace
 
@@ -157,4 +157,4 @@ Now you are ready to go and create a new PHP/Laravel project inside `~/Code` or 
 
 Here is a full picture of what we've done.
 
-![PHP local development environment scheme](@assets/images/valet.png)
+<img src="/assets/laravel_valet.png" srcset="/assets/laravel_valet.png 2x" alt="PHP local development environment scheme">
