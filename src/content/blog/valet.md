@@ -7,7 +7,7 @@ draft: false
 tags:
   - PHP
   - Laravel
-  - Valet
+  - Laravel Valet
   - Composer
   - Brew
   - DBngin
