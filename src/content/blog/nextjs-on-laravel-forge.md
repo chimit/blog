@@ -1,7 +1,7 @@
 ---
 title: Self-hosting Next.js with SSR/ISR via Laravel Forge
 author: Chimit
-pubDatetime: 2024-08-04T04:00:00Z
+pubDatetime: 2024-08-04T20:00:00Z
 featured: false
 draft: false
 tags:

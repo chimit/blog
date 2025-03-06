@@ -1,7 +1,7 @@
 ---
 title: Don't use @lang directive in Blade templates
 author: Chimit
-pubDatetime: 2025-03-03T12:00:00Z
+pubDatetime: 2025-03-03T20:00:00Z
 featured: false
 draft: false
 tags:
