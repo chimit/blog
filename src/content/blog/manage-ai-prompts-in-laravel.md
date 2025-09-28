@@ -1,7 +1,7 @@
 ---
 title: "How to manage AI prompts in Laravel in Blade style"
 author: Chimit
-pubDatetime: 2025-09-28T17:00:00Z
+pubDatetime: 2025-09-28T10:00:00Z
 featured: false
 draft: false
 tags:
