@@ -1,5 +1,5 @@
 ---
-title: "How to manage AI prompts in Laravel in Blade style"
+title: "How to manage AI prompts in Markdown in Laravel"
 author: Chimit
 pubDatetime: 2025-09-28T10:00:00Z
 featured: false
@@ -9,7 +9,8 @@ tags:
   - Blade
   - AI
   - Prompts
-description: "Effectively manage AI prompts in Laravel using the power of Blade for better organization and maintainability."
+  - Markdown
+description: "Effectively manage AI prompts in Markdown using the power of Blade for better organization and maintainability."
 ---
 
 In my work on [Cointry](https://cointry.io), I frequently interact with AI and prompts. As the application grows, managing these prompts becomes increasingly challenging. Embedding prompts directly as strings within a controller or service can quickly lead to messy, hard-to-maintain code riddled with concatenated strings, embedded variables, and conditional logic, all within a single PHP method.
