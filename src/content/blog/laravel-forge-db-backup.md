@@ -11,7 +11,7 @@ tags:
   - S3
   - Cloudflare R2
   - Netcup
-description: "Free and reliable backup solution for Laravel Forge."
+description: "Free database backup solution for Laravel Forge deployments using Cloudflare R2."
 ---
 
 Recently, I moved my websites from dearly loved Hetzner to [Netcup](https://www.netcup.com/en/?ref=319497) and realized that unlike Hetzner, Netcup doesn't offer daily backups. It brought me back in memory to 2010th when I spent hours configuring [Backupninja](https://0xacab.org/liberate/backupninja) and [Duplicity](https://duplicity.gitlab.io) to backup my servers. They are still great tools, but I wanted something simpler, easier to manage, but still completely free.
@@ -32,7 +32,7 @@ First of all, I needed a free offsite storage solution and [Cloudflare R2](https
 
 Another critical point for me was the ability to exclude specific tables from the backup. For example, I have some large tables with search indexes that I don't need to backup, as they can be easily regenerated. For one of my sites, excluding those tables reduced the backup size from 4.1 GB to 2.8 GB! It makes the process significantly faster and saves storage space.
 
-I created a simple bash script, but wanted to avoid the hassle of managing it via SSH. Laravel Forge provides a great way to manage environment variables, schedule tasks, and monitor heartbeats without needing to SSH into the server. So I decided to set it up as a Laravel Forge website to use all these features.
+I created a simple bash script, but wanted to avoid the hassle of managing it via SSH. Laravel Forge provides a great way to manage environment variables, schedule tasks, and monitor heartbeats without needing to SSH into the server. So I decided to set it up as a Laravel Forge website to use all those features.
 
 ### Installation
 
@@ -83,7 +83,7 @@ AWS_BUCKET="your-bucket-name"
 
 ### Scheduled job
 
-Go to **Processes** -> **Scheduler** tab of your Forge site and create a new scheduled task. Give it any name you like, e.g. `Database Backup` and put the full path to the `backup.sh` script as the command (`/home/forge/{your-site}/backup.sh`). Choose desired frequency (e.g., nightly) and optionally enable **Monitor with heartbeats**.
+Go to **Processes** -> **Scheduler** tab of your Forge site and create a new scheduled task. Give it any name you like, e.g. `DB backup` and put the full path to the `backup.sh` script as the command (`/home/forge/{your-site}/backup.sh`). Choose desired frequency (e.g., nightly) and optionally enable **Monitor with heartbeats**.
 
 <img src="/assets/laravel_forge_scheduled_job.png" width="500" alt="Laravel Forge - create scheduled job">
 

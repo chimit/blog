@@ -9,7 +9,7 @@ export const SITE: Site = {
   title: "Undocumented Docs",
   ogImage: "chimit-og.jpg",
   lightAndDarkMode: true,
-  postPerIndex: 4,
+  postPerIndex: 10,
   postPerPage: 20,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
 };
