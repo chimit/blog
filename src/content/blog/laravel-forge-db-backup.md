@@ -65,7 +65,7 @@ DB_DATABASES="database1,database2"
 # Tables to ignore per database (optional)
 # Format: database.table1,database.table2,another_db.table1
 # Use comma to separate database.table pairs
-DB_IGNORE_TABLES="database1.search_index,database2.logs"
+DB_IGNORE_TABLES="database1.search_index,database2.pulse_entries,database2.pulse_aggregates"
 
 # Number of backups to keep
 KEEP_COUNT=7
@@ -94,3 +94,23 @@ It's always a good idea to monitor your backups to ensure they run successfully.
 <img src="/assets/laravel_forge_heartbeat.png" width="300" alt="Laravel Forge - create scheduled job">
 
 All done! Now let's make sure everything works by running the backup script manually - click **Run** in the dropdown next to your scheduled job. After a few seconds or minutes (depending on the size of your databases), your backups should appear in the `backups` folder of your website and in your S3 bucket.
+
+In the command output, you should see something like this:
+
+```
+Starting database backup...
+
+Processing database1...
+  Ignoring tables: search_index
+  ✓ Backup created successfully
+  ✓ Deleted old local backup: database1_2025-10-26_00-00-01.sql.gz
+  ✓ Uploaded to S3 (700.27 MB)
+  ✓ Deleted old S3 backup: database1_2025-10-26_00-00-01.sql.gz
+
+Processing database2...
+  Ignoring tables: pulse_entries, pulse_aggregates
+  ✓ Backup created successfully
+  ✓ Uploaded to S3 (19.02 MB)
+
+✓ All backups completed successfully on Fri, 27 Oct, 2025 at 00:00:01
+```
