@@ -1,5 +1,5 @@
 ---
-title: "Database backups on Laravel Forge for free"
+title: "How to set up free Database Backups on Laravel Forge"
 author: Chimit
 pubDatetime: 2025-10-27T21:00:00Z
 featured: false
@@ -11,7 +11,7 @@ tags:
   - S3
   - Cloudflare R2
   - Netcup
-description: "Free database backup solution for Laravel Forge deployments using Cloudflare R2."
+description: "Simple and free database backup solution for Laravel Forge using Cloudflare R2 with heartbeats monitoring, automated cleanup and non-critical tables exclusion."
 ---
 
 Recently, I moved my websites from dearly loved Hetzner to [Netcup](https://www.netcup.com/en/?ref=319497) and realized that unlike Hetzner, Netcup doesn't offer daily backups. It brought me back in memory to 2010th when I spent hours configuring [Backupninja](https://0xacab.org/liberate/backupninja) and [Duplicity](https://duplicity.gitlab.io) to backup my servers. They are still great tools, but I wanted something simpler, easier to manage, but still completely free.
