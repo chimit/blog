@@ -103,14 +103,14 @@ Starting database backup...
 Processing database1...
   Ignoring tables: search_index
   ✓ Backup created successfully
-  ✓ Deleted old local backup: database1_2025-10-26_00-00-01.sql.gz
+  ✓ Deleted old local backup: database1_2025-10-26_00-05-10.sql.gz
   ✓ Uploaded to S3 (700.27 MB)
-  ✓ Deleted old S3 backup: database1_2025-10-26_00-00-01.sql.gz
+  ✓ Deleted old S3 backup: database1_2025-10-26_00-05-10.sql.gz
 
 Processing database2...
   Ignoring tables: pulse_entries, pulse_aggregates
   ✓ Backup created successfully
   ✓ Uploaded to S3 (19.02 MB)
 
-✓ All backups completed successfully on Fri, 27 Oct, 2025 at 00:00:01
+✓ All backups completed successfully on Fri, 27 Oct, 2025 at 00:05:13 (5m 12s)
 ```
