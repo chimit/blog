@@ -18,13 +18,13 @@ tags:
 description: "My attempt to get the world using keyboard shortcuts."
 ---
 
-I keep noticing how much people do with the mouse. The keyboard is for typing letters. Move the caret back a word, select a line, close a tab, undo something — the hand leaves the keys every time. Copy and paste are usually the only shortcuts anyone knows.
+I often see people reach for the mouse to select text or close a tab, even when they're already typing. Most know how to copy and paste with the keyboard, but use the mouse for almost everything else.
 
-Those detours cost a second and a bit of attention each, and there are hundreds of them a day. I am no shortcut fanatic myself; I have never memorized a forty-line cheatsheet and don't intend to. But a dozen combinations is enough to make an ordinary day noticeably faster, and they are universal — the same handful works in an editor, a browser, a spreadsheet, on all three systems. Learn them once and muscle memory does the rest.
+I use the mouse plenty myself, but a few shortcuts have become habits. You don't need to learn that many to find them useful. Things like moving between words or selecting a whole line come up often and are mostly universal across apps and operating systems.
 
-So why doesn't everyone know them? Not laziness. A list of forty combinations read once is gone by the afternoon, because none of them was ever attached to a moment when you needed it. A cheatsheet answers a question you are not asking yet.
+I think most people just get used to doing things with the mouse. Learning shortcuts takes a bit of effort, and looking through a cheatsheet doesn't help much if you don't use what you've learned right away. I wanted to make something where you could practice them as you go.
 
-That is why I built [Shortcut Express](https://github.com/chimit/shortcut-express), a small desktop app that makes routine work faster for ordinary computer users.
+That's why I built [Shortcut Express](https://github.com/chimit/shortcut-express), a small desktop app that teaches shortcuts for everyday tasks. You practice them in a simulated text editor, browser, and other familiar parts of an app.
 
 <img src="/assets/shortcut-express.gif" width="600" alt="Shortcut Express">
 
