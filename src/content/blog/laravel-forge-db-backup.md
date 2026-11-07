@@ -2,6 +2,7 @@
 title: "How to set up free Database Backups on Laravel Forge"
 author: Chimit
 pubDatetime: 2025-10-27T21:00:00Z
+modDatetime: 2026-11-07T07:00:00Z
 featured: false
 draft: false
 tags:
@@ -67,11 +68,12 @@ DB_DATABASES="database1,database2"
 # Use comma to separate database.table pairs
 DB_IGNORE_TABLES="database1.search_index,database2.pulse_entries,database2.pulse_aggregates"
 
-# Number of backups to keep
-KEEP_COUNT=7
+# Number of backups to keep per database.
+# With a bucket lock, set to lock days + 1 (see below)
+KEEP_COUNT=11
 ```
 
-If you chose Cloudflare R2 as your storage, you need to create a bucket and **S3 API access key** with read and write permissions to that bucket. Settings should look familiar if you have used S3 in Laravel before:
+If you chose Cloudflare R2 as your storage, you need to create a bucket and an **S3 API token** with the **Object Read & Write** permission for that bucket. Settings should look familiar if you have used S3 in Laravel before:
 
 ```shell
 # S3 storage configuration
@@ -80,6 +82,20 @@ AWS_SECRET_ACCESS_KEY="your-secret-access-key"
 AWS_ENDPOINT="https://your-s3-endpoint.com"
 AWS_BUCKET="your-bucket-name"
 ```
+
+### Protecting backups from deletion
+
+Some time after I set this up, one thought started to bother me. The script cleans up old backups, which means the key sitting in `.env` can delete anything in the bucket. Now imagine someone breaks into the server. Before encrypting or dropping your databases, a smart attacker gets rid of the backups first, and here the key to do it is lying right next to them.
+
+Luckily, Cloudflare R2 has bucket locks. A lock rule says that nobody can delete or overwrite an object for N days after upload, and it doesn't matter which key they use. I went with 10 days: open the bucket **Settings**, find **Bucket lock rules** and add a rule with an empty prefix, so it covers the whole bucket.
+
+<img src="/assets/r2_bucket_lock.png" width="400" alt="Cloudflare R2 - bucket lock rule">
+
+There are two small catches.
+
+First, the lock is only as strong as the token on your server. An Admin token can simply remove the rule, so stick to **Object Read & Write** limited to the backup bucket.
+
+Second, set `KEEP_COUNT` one higher than the lock period, so `11` in my case. The lock counts each backup's age from the moment it was uploaded, and the script removes the oldest backup right after uploading a fresh one. With `KEEP_COUNT=10` that oldest backup is almost exactly 10 days old. If today's dump happened to finish a few seconds faster, it's still locked and R2 refuses to delete it. Nothing terrible happens: the script prints a warning and cleans it up the next night. One extra backup just keeps the output clean.
 
 ### Scheduled job
 
@@ -102,15 +118,15 @@ Starting database backup...
 
 Processing database1...
   Ignoring tables: search_index
-  ✓ Backup created successfully
-  ✓ Deleted old local backup: database1_2025-10-26_00-05-10.sql.gz
+  ✓ Backup created successfully: database1_2025-10-27_00-00-01.sql.gz
+  ✓ Deleted old local backup: database1_2025-10-16_00-00-01.sql.gz
   ✓ Uploaded to S3 (700.27 MB)
-  ✓ Deleted old S3 backup: database1_2025-10-26_00-05-10.sql.gz
+  ✓ Deleted old S3 backup: database1_2025-10-16_00-00-01.sql.gz
 
 Processing database2...
   Ignoring tables: pulse_entries, pulse_aggregates
-  ✓ Backup created successfully
+  ✓ Backup created successfully: database2_2025-10-27_00-00-01.sql.gz
   ✓ Uploaded to S3 (19.02 MB)
 
-✓ All backups completed successfully on Fri, 27 Oct, 2025 at 00:05:13 (5m 12s)
+✓ All backups completed successfully on Mon, Oct 27, 2025 at 00:05:13 (5m 12s)
 ```
